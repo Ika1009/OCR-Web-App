@@ -52,7 +52,7 @@ function generateTextDoc(text) {
     
     // Create a URL for the Blob and set the download attributes
     downloadBtn.href = URL.createObjectURL(blob);
-    downloadBtn.download = "OCR_Result.txt"; // Name of the downloaded file
+    downloadBtn.download = "Extracted_text.txt"; // Name of the downloaded file
     downloadBtn.disabled = false; // Enable the download button
 }
 
