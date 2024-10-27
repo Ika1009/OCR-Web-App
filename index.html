@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OCR to Word Converter</title>
+    <title>OCR to Text Converter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="app-container">
-        <h1>OCR to Word Converter</h1>
+        <h1>OCR to Text Converter</h1>
         <div class="upload-box" onclick="document.getElementById('fileInput').click()">
             <p>Click to upload an image or PDF</p>
             <input type="file" id="fileInput" accept=".jpg, .jpeg, .png, .pdf" onchange="processFile()" />
         </div>
-        <button id="downloadBtn" onclick="downloadWordDoc()" disabled>Download as Word Document</button>
+        <button id="downloadBtn" onclick="downloadTextDoc()" disabled>Download as Text Document</button>
         <p id="statusMessage"></p>
     </div>
     <script src="script.js"></script>

@@ -34,8 +34,8 @@ async function processFile() {
         if (response.ok) {
             const data = await response.json();
             const text = data.responses[0].fullTextAnnotation.text;
-            generateWordDoc(text);
-            statusMessage.innerText = "OCR completed! Click to download the Word document.";
+            generateTextDoc(text);
+            statusMessage.innerText = "OCR completed! Click to download the text document.";
         } else {
             statusMessage.innerText = "Error performing OCR. Please try again.";
         }
@@ -44,15 +44,19 @@ async function processFile() {
     reader.readAsDataURL(file);
 }
 
-function generateWordDoc(text) {
+function generateTextDoc(text) {
     const downloadBtn = document.getElementById("downloadBtn");
-    const blob = new Blob([text], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+    
+    // Create a new Blob for the text file
+    const blob = new Blob([text], { type: "text/plain" });
+    
+    // Create a URL for the Blob and set the download attributes
     downloadBtn.href = URL.createObjectURL(blob);
-    downloadBtn.download = "OCR_Result.docx";
-    downloadBtn.disabled = false;
+    downloadBtn.download = "OCR_Result.txt"; // Name of the downloaded file
+    downloadBtn.disabled = false; // Enable the download button
 }
 
-function downloadWordDoc() {
+function downloadTextDoc() {
     const statusMessage = document.getElementById("statusMessage");
-    statusMessage.innerText = "Word document downloaded!";
+    statusMessage.innerText = "Text document downloaded!";
 }
